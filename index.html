@@ -1,12 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brands and Butter</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=DM+Serif+Text&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/favicon.ico">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("your_user_id"); // Replace with your EmailJS user ID
+        })();
+    </script>
+
 </head>
 <body>
     <header>
@@ -20,50 +27,129 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="mobile-menu-icon">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </nav>
         </div>
     </header>
     <main>
+        <!-- Hero Section -->
         <section class="hero" id="hero">
-            <h1>Welcome to Brands and Butter</h1>
-            <p>We craft the future of beauty, one brand at a time.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">Learn More</button>
-                <button class="btn-outline">Contact Us</button>
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="background-video">
+                    <source src="assets/Hero.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Discover the Wisdom of Your Skin</h1>
+                <p class="additional-text">
+                    We specialize in crafting innovative beauty brands that speak to modern lifestyles, from post-treatment skincare solutions to bold, playful products.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn-primary">Explore Our Brands</a>
+                    <a href="#contact" class="btn-secondary">Work With Us</a>
+                </div>
             </div>
         </section>
+
+        <!-- About Us Section -->
         <section class="about" id="about">
-            <h2>About Us</h2>
-            <p>At Brands and Butter, we are obsessed with crafting meaningful beauty and skincare brands...</p>
+            <div class="content-wrapper">
+               <br/><br/> <h2>About Us</h2>
+                <p>
+                    Brands & Butter is your partner in beauty innovation. With over 15 years of experience, 
+                    we specialize in crafting unique beauty and skincare brands that resonate deeply with consumers. 
+                    From post-treatment skincare solutions to products that speak to the heart of Gen Z, 
+                    we combine research, creativity, and strategy to deliver exceptional results.
+                </p>
+                <img src="assets/Aboutus.jpg" alt="About Us" class="responsive-img">
+            </div>
         </section>
+
+        <!-- Portfolio Section -->
+         
         <section class="portfolio" id="portfolio">
-            <h2>Our Portfolio</h2>
-            <p>Explore our brands, from Lift Molecule to our fun, Gen Z lip balm collection.</p>
+            <div class="content-wrapper">
+                <br/><br/><h2>Our Portfolio</h2>
+                <p>
+                    Discover our growing portfolio of brands, each designed to solve real-world beauty challenges:
+                </p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="assets/brand1.jpg" alt="Brand 1">
+                        <h3>Lift Molecule</h3>
+                        <p>A cutting-edge skincare solution designed to rejuvenate and restore after post-treatment care. Powered by science, Lift Molecule accelerates recovery and enhances skin vitality, ensuring you feel confident and radiant.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/brand2.jpg" alt="Brand 2">
+                        <h3>Zleep</h3>
+                        <p>Revolutionizing the way you sleep, Sleep is a biohacking-inspired solution rooted in neuroscience. Designed to harmonize body, brain, and beauty, it helps you achieve deeper rest and wake up refreshed, redefining the sleeping game.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/brand3.jpg" alt="Brand 3">
+                        <h3>Flirtology</h3>
+                        <p>A transformative lip product that enhances and softens your lips with a unique blurring effect. Lip Blur combines hydration and a velvety finish to create effortlessly luscious, natural-looking lips.</p>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- Process Section -->
         <section class="process" id="process">
-            <h2>Our Process</h2>
-            <p>Discover how we create impactful brands from the ground up.</p>
+            <div class="text-block">
+                <br/><br/> <h2>Our Process</h2>
+                <p>
+                    At Brands & Butter, every product starts with a story. <br/> Our process involves:
+                    <ul>
+                        <li><strong>Research & Insights:</strong> Understanding consumer needs and trends.</li>
+                        <li><strong>Innovation:</strong> Developing unique formulas and designs.</li>
+                        <li><strong>Storytelling:</strong> Crafting a narrative that builds an emotional connection.</li>
+                        <li><strong>Launch & Growth:</strong> Ensuring your brand thrives in the market.</li>
+                    </ul>
+                    
+                </p>
+            </div>
+            <img src="/assets/process.jpg" alt="Our Process" class="responsive-img">
         </section>
+
+        <!-- Contact Section -->
+
+
         <section class="contact" id="contact">
-            <h2>Contact Us</h2>
-            <form action="mailto:hello@brandsnbutter.com" method="POST" enctype="text/plain">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit" class="btn-primary">Send Message</button>
-            </form>
-        </section>
+            <div class="text-block">
+                <br/><br/> <h2>Contact Us</h2>
+                <p>
+                    Ready to build your next beauty brand? Reach out to us, and let's bring your vision to life.
+                    <br>Email us directly at <strong>hello@brandsnbutter.com</strong> or use the form below.
+                </p>
+            </div>
+            
+
+        <form
+        action="https://formspree.io/f/xkggpvpd"
+        method="POST">
+        <label>
+          Your email:
+          <input type="email" name="email">
+        </label>
+        <label>
+          Your message:
+          <textarea name="message"></textarea>
+        </label>
+        <!-- your other form fields go here -->
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+
     </main>
     <footer>
         <p>© 2025 Brands and Butter. All rights reserved.</p>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="Script.js"></script>
 </body>
 </html>
