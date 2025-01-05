@@ -36,28 +36,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function submitForm() {
-    const formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value,
-    };
+// Smooth scrolling with custom duration
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-    emailjs
-        .send("your_service_id", "your_template_id", formData)
-        .then(
-            () => {
-                alert("Your message has been sent!");
-                document.getElementById("contact-form").reset(); // Clears the form
-            },
-            (error) => {
-                alert("Failed to send the message. Please try again.");
-                console.error("EmailJS Error:", error);
-            }
-        );
-}
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            smoothScroll(target, 1000); // Adjust duration in milliseconds (e.g., 1000ms = 1 second)
+        }
 
-function submitForm() {
-    alert("Your message has been sent!");
-    window.location.href = "thank-you.html"; // Redirect to a thank-you page
+        // Close mobile menu after clicking a link
+        const navLinks = document.querySelector(".nav-links");
+        if (navLinks && navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active");
+        }
+    });
+});
+
+// Custom smooth scroll function
+function smoothScroll(target, duration) {
+    const startPosition = window.scrollY;
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d) {
+        // Easing function for smooth scrolling (easeInOutQuad)
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
 }
